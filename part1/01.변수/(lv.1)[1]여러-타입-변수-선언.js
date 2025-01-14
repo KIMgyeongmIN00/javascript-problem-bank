@@ -1,4 +1,4 @@
-/**
+ /**
  * [여러-타입-변수-선언.js]
  *
  * 아래 문제에서는 여러 가지 타입을 갖는 변수를 각각 선언하고, 해당 타입에 맞는 값을 할당하세요.
@@ -11,13 +11,13 @@
  *  7) null 값 변수 nul을 선언 후, null을 할당하세요.
  */
 
-let num;
-let str;
-let bool;
-let arr;
-let obj;
-let undef;
-let nul;
+let num = 42;
+let str = "hello";
+let bool = true;
+let arr = [1, 2, 3];
+let obj = {name: 'John', age: '23', gender: 'male'};
+let undef = undefined;
+let nul = null;
 
 // export 를 수정하지 마세요.
 export { num, str, bool, arr, obj, undef, nul };
