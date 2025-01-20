@@ -11,6 +11,34 @@
  */
 function getDayName(dayNumber) {
   // TODO
+  let toKorean = ""
+  switch (dayNumber) {
+    case 1:
+      toKorean = "월"
+      break;
+    case 2:
+      toKorean = "화"
+      break;
+    case 3:
+      toKorean = "수"
+      break;
+    case 4:
+      toKorean = "목"
+      break;
+    case 5:
+      toKorean = "금"
+      break;
+    case 6:
+      toKorean = "토"
+      break;
+    case 7:
+      toKorean = "일"
+      break;
+    default:
+      toKorean = "Invalid"
+      break;
+  }
+  return toKorean;
 }
 
 // export 를 수정하지 마세요.
