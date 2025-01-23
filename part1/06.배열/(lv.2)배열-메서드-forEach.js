@@ -9,10 +9,12 @@
  * @param {number[]} arr
  * @returns {number} 배열 원소의 합
  */
+
 function sumArray(arr) {
-  arr.forEach(item => {
-    sum += item
-  });
+  let sum = 0;
+  arr.forEach((num) => {
+    sum += num;
+  })
   return sum;
 }
 
