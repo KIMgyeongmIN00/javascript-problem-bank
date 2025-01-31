@@ -8,7 +8,9 @@
  * @returns {Function} 내부 함수
  */
 function simpleClosure() {
-  let message = "Hello Closure!";
+  let message = 'Hello Closure!';
+  function closure() { return message; };
+  return closure;
 }
 
 // export를 수정하지 마세요.
