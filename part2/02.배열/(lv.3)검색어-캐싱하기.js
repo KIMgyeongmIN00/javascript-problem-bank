@@ -17,11 +17,19 @@ let topKeywordsCache = [];
 
 function updateTopKeywords(keywords) {
   // TODO
+  topKeywordsCache = [];
+  keywords.forEach(e => {
+    if (!topKeywordsCache.includes(e)) {
+      if (topKeywordsCache.length < 10) { topKeywordsCache.push(e) }
+    }
+    return topKeywordsCache;
+  });
+  return topKeywordsCache
 }
 
 function getTopKeywords() {
   // TODO
-  return [];
+  return topKeywordsCache;
 }
 
 // export를 수정하지 마세요.
