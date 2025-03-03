@@ -10,7 +10,18 @@
  * @returns {any[][]}
  */
 
-function chunkArray(arr, size) {}
+function chunkArray(arr, size) {
+  const dividedArr = [];
+  let i = 0;
+  while (i < arr.length) {
+    const chunk = [];
+    chunk.push(...arr.slice(i, i + size));
+    dividedArr.push(chunk)
+    console.log(dividedArr)
+    i += size
+  }
+  return dividedArr
+}
 
 // export 를 수정하지 마세요.
 export { chunkArray };
