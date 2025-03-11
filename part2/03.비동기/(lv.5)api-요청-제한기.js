@@ -27,7 +27,42 @@
  * @returns {(fn: () => Promise<any>) => Promise<any>}
  */
 
-function createRateLimiter(maxRequests, timeWindow) {}
+function createRateLimiter(maxRequests, timeWindow) {
+  let requests = 0;
+  const queue = [];
+
+  function callbackQueue() {
+    if (queue.length === 0 || requests >= maxRequests) return;
+
+    const { resolve, fn } = queue.shift();
+    requests++;
+
+    resolve(fn());
+
+    setTimeout(() => {
+      requests--;
+      callbackQueue();
+    }, timeWindow);
+  }
+
+  return function (fn) {
+    return new Promise((resolve, _) => {
+      if (requests < maxRequests) {
+        requests++;
+        resolve(fn());
+
+        setTimeout(() => {
+          requests--;
+          callbackQueue();
+        }, timeWindow);
+      } else {
+        queue.push({ resolve, fn });
+
+        if (queue.length === 1) callbackQueue();
+      }
+    });
+  };
+}
 
 // export 를 수정하지 마세요.
 export { createRateLimiter };
