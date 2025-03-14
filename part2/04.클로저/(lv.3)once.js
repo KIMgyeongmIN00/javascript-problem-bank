@@ -9,7 +9,16 @@
  * @returns {Function}
  */
 
-function once(fn) {}
+function once(fn) {
+  let firstResult;
+  return (...arg) => {
+    if (firstResult) return firstResult;
+    else {
+      firstResult = fn(...arg)
+      return firstResult
+    }
+  }
+}
 
 // export를 수정하지 마세요.
 export { once };
