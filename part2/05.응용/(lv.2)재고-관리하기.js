@@ -15,7 +15,14 @@ const inventory = [
   { id: 200, name: "Mouse", stock: 5 },
 ];
 
-function addProduct(newItem) {}
+function addProduct(newItem) {
+  const itemExist = inventory.find((item) => item.id === newItem.id)
+  if (itemExist) { itemExist.stock += newItem.stock }
+  if (!itemExist) { inventory.push(newItem) }
+  const deleteZeroStockItem = inventory.filter((item) => item.stock !== 0)
+  console.log(deleteZeroStockItem)
+  return deleteZeroStockItem
+}
 
 // export를 수정하지 마세요.
 export { inventory, addProduct };
