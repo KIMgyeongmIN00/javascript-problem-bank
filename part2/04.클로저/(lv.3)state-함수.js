@@ -10,7 +10,13 @@
  * @returns {[any, Function]}
  */
 
-function makeState(initialValue) {}
+function makeState(initialValue) {
+  let currentValue = initialValue;
+
+  function setValue(arg) { return currentValue = arg }
+
+  return [currentValue, setValue]
+}
 
 // export를 수정하지 마세요.
 export { makeState };
