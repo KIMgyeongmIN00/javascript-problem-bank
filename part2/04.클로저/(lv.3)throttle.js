@@ -11,7 +11,17 @@
  */
 
 // TODO: throttle 함수를 작성하세요.
-function throttle(func, delay) {}
+function throttle(func, delay) {
+  let running
+  return (...args) => {
+    if (running) return
+    running = true
+    func(...args)
+    setTimeout(() => {
+      running = false
+    }, delay);
+  }
+}
 
 // export 를 수정하지 마세요.
 export { throttle };
