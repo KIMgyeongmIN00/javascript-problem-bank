@@ -10,7 +10,18 @@
  * @returns {string}
  */
 
-function formatDate(date) {}
+function formatDate(date) {
+  function fillUp(value) {
+    return String(value).padStart(2, '0')
+  }
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  const hour = date.getHours()
+  const min = date.getMinutes()
+
+  return `${year}년 ${fillUp(month)}월 ${fillUp(day)}일 ${fillUp(hour)}시 ${fillUp(min)}분`
+}
 
 // export를 수정하지 마세요.
 export { formatDate };

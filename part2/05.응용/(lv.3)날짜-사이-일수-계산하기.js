@@ -12,7 +12,11 @@
  * @returns {number}
  */
 
-function daysBetween(date1, date2) {}
+function daysBetween(date1, date2) {
+  const gap = Date.parse(date1) - Date.parse(date2)
+
+  return Math.abs(gap / (1000 * 60 * 60 * 24));
+}
 
 // export 를 수정하지 마세요.
 export { daysBetween };
